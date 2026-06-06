@@ -1,4 +1,4 @@
-# robot_vision
+# ROBOT_VISION
 - 해당 패키지는 Gazebo 시뮬레이션 환경에서 YOLOv8과 RGB-D 카메라를 이용해 객체를 인식하고, 3D 좌표를 계산해 퍼블리시하는 ROS 2 노드임.
 - 비전 파트와 로봇 제어(MoveIt 2) 파트를 완전히 분리하기 위해, 인식된 객체의 위치 데이터를 JSON 형태로 쏴주는 역할만 담당함.
 
@@ -21,7 +21,7 @@ sudo apt-get install ros-humble-cv-bridge ros-humble-tf2-ros ros-humble-tf2-geom
 
 ```bash
 cd ~/your_workspace/src
-git clone git@github.com:ROS2bootcamp/ROBOT_VISION.git
+git clone https://github.com/ROS2bootcamp/ROBOT_VISION.git
 cd ~/your_workspace
 colcon build --packages-select robot_vision
 source install/setup.bash
