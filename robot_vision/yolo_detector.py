@@ -22,7 +22,7 @@ class YoloDetectorNode(Node):
         # RGB 이미지 구독
         self.image_sub = self.create_subscription(Image, rgb_topic_name, self.image_callback, 10)
         # Depth 이미지 구독
-        self.depth_sub = self.cr (실행 전 매번 source install/setup.bash 적용 필수)eate_subscription(Image, depth_topic_name, self.depth_callback, 10)
+        self.depth_sub = self.create_subscription(Image, depth_topic_name, self.depth_callback, 10)
         
         # 로봇암 제어 노드가 구독할 토픽
         self.result_pub = self.create_publisher(String, '/vision/detection_results', 10)
