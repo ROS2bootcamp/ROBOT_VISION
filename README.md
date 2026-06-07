@@ -68,3 +68,20 @@ cd robot_vision
 > [!NOTE]
 > 참고사항: 로봇 팔 조작을 위한 타겟 좌표는 `position_3d_base_frame` 값을 사용하면 됨. (TF2 변환이 적용된 절대 좌표값임).
 
+## ur3 로봇 팔 에셋에 카메라 추가
+레포지토리 urdf 디렉토리 내의 camera.xacro 파일을 ur3 에셋 폴더에 같이 포함시킨 뒤에 아래 내용 추가
+```xml
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://wiki.ros.org/xacro" name="ur3_robot">
+  <xacro:include filename="camera_macro.xacro" />
+  
+  ...
+  기존 세팅 코드들
+  ...
+
+  <xacro:rgbd_camera parent="tool0" prefix="">
+    <origin xyz="0 0 0.05" rpy="3.14159 -1.5708 1.5708"/>
+  </xacro:rgbd_camera>
+</robot>
+```"
+```

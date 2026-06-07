@@ -39,5 +39,9 @@ colcon build --packages-select robot_vision
 echo "⚙️ [3/4] ROS 2 환경 변수를 적용합니다..."
 source install/setup.bash
 
+export IGN_GAZEBO_RESOURCE_PATH=/opt/ros/humble/share:$IGN_GAZEBO_RESOURCE_PATH
+export GZ_SIM_RESOURCE_PATH=/opt/ros/humble/share:$GZ_SIM_RESOURCE_PATH
+
 echo "🤖 [4/4] 통합 Launch 파일을 실행합니다 (Gazebo + Bridge + YOLO)..."
+export LIBGL_ALWAYS_SOFTWARE=1
 ros2 launch robot_vision vision_bringup.launch.py
