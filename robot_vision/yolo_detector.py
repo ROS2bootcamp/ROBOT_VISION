@@ -27,8 +27,10 @@ class YoloDetectorNode(Node):
             Image, '/camera/image', self.image_callback, 10)
         self.depth_sub = self.create_subscription(
             Image, '/camera/depth_image', self.depth_callback, 10)
+        # fixed_rgbd_camera.sdf type="camera" sensor publishes camera_info
+        # at {topic}/camera_info = /camera/image/camera_info (not /camera/camera_info)
         self.info_sub = self.create_subscription(
-            CameraInfo, '/camera/camera_info', self._camera_info_callback, 1)
+            CameraInfo, '/camera/image/camera_info', self._camera_info_callback, 1)
 
         self.result_pub = self.create_publisher(String, '/vision/detection_results', 10)
 

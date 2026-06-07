@@ -41,7 +41,9 @@ def generate_launch_description():
         arguments=[
             '/camera/image@sensor_msgs/msg/Image[ignition.msgs.Image',
             '/camera/depth_image@sensor_msgs/msg/Image[ignition.msgs.Image',
-            '/camera/camera_info@sensor_msgs/msg/CameraInfo[ignition.msgs.CameraInfo',
+            # fixed_rgbd_camera.sdf type="camera" sensor publishes camera_info
+            # at /camera/image/camera_info (not /camera/camera_info)
+            '/camera/image/camera_info@sensor_msgs/msg/CameraInfo[ignition.msgs.CameraInfo',
         ],
         output='screen',
     )
